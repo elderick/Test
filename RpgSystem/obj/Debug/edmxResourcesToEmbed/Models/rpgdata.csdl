@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Campaing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CampaingName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK__Players__IdCampa__49C3F6B7" FromRole="Campaing" ToRole="Players" />
+    <NavigationProperty Name="Sheet" Relationship="Self.FK__Sheet__IdCampain__5CD6CB2B" FromRole="Campaing" ToRole="Sheet" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdCampaing" Type="Int32" Nullable="false" />
+    <Property Name="usernick" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="master" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Campaing" Relationship="Self.FK__Players__IdCampa__49C3F6B7" FromRole="Players" ToRole="Campaing" />
+    <NavigationProperty Name="Sheet" Relationship="Self.FK__Sheet__IdPlayer__5DCAEF64" FromRole="Players" ToRole="Sheet" />
+  </EntityType>
+  <EntityType Name="Sheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdCampaing" Type="Int32" Nullable="false" />
+    <Property Name="IdPlayer" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Campaing" Relationship="Self.FK__Sheet__IdCampain__5CD6CB2B" FromRole="Sheet" ToRole="Campaing" />
+    <NavigationProperty Name="Players" Relationship="Self.FK__Sheet__IdPlayer__5DCAEF64" FromRole="Sheet" ToRole="Players" />
+  </EntityType>
+  <Association Name="FK__Players__IdCampa__49C3F6B7">
+    <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="IdCampaing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sheet__IdCampain__5CD6CB2B">
+    <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+    <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sheet">
+        <PropertyRef Name="IdCampaing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sheet__IdPlayer__5DCAEF64">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sheet">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Campaing" EntityType="Self.Campaing" />
+    <EntitySet Name="Players" EntityType="Self.Players" />
+    <EntitySet Name="Sheet" EntityType="Self.Sheet" />
+    <AssociationSet Name="FK__Players__IdCampa__49C3F6B7" Association="Self.FK__Players__IdCampa__49C3F6B7">
+      <End Role="Campaing" EntitySet="Campaing" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sheet__IdCampain__5CD6CB2B" Association="Self.FK__Sheet__IdCampain__5CD6CB2B">
+      <End Role="Campaing" EntitySet="Campaing" />
+      <End Role="Sheet" EntitySet="Sheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sheet__IdPlayer__5DCAEF64" Association="Self.FK__Sheet__IdPlayer__5DCAEF64">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Sheet" EntitySet="Sheet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

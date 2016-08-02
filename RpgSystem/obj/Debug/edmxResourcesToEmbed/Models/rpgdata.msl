@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities1">
+    <EntitySetMapping Name="Campaing">
+      <EntityTypeMapping TypeName="DataModel.Campaing">
+        <MappingFragment StoreEntitySet="Campaing">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CampaingName" ColumnName="CampaingName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="DataModel.Players">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCampaing" ColumnName="IdCampaing" />
+          <ScalarProperty Name="usernick" ColumnName="usernick" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="master" ColumnName="master" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sheet">
+      <EntityTypeMapping TypeName="DataModel.Sheet">
+        <MappingFragment StoreEntitySet="Sheet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCampaing" ColumnName="IdCampaing" />
+          <ScalarProperty Name="IdPlayer" ColumnName="IdPlayer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

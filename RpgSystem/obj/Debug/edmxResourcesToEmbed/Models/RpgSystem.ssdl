@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Campaing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CampaingName" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdCampaing" Type="int" Nullable="false" />
+    <Property Name="usernick" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="master" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdCampaing" Type="int" Nullable="false" />
+    <Property Name="IdPlayer" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Players__IdCampa__49C3F6B7">
+    <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="IdCampaing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sheet__IdCampain__5CD6CB2B">
+    <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+    <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sheet">
+        <PropertyRef Name="IdCampaing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sheet__IdPlayer__5DCAEF64">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sheet">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Campaing" EntityType="Self.Campaing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sheet" EntityType="Self.Sheet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Players__IdCampa__49C3F6B7" Association="Self.FK__Players__IdCampa__49C3F6B7">
+      <End Role="Campaing" EntitySet="Campaing" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sheet__IdCampain__5CD6CB2B" Association="Self.FK__Sheet__IdCampain__5CD6CB2B">
+      <End Role="Campaing" EntitySet="Campaing" />
+      <End Role="Sheet" EntitySet="Sheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sheet__IdPlayer__5DCAEF64" Association="Self.FK__Sheet__IdPlayer__5DCAEF64">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Sheet" EntitySet="Sheet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

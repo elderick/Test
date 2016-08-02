@@ -1,0 +1,108 @@
+﻿@model RpgSystem.ViewModel.Login.User
+@{
+    Layout = "";
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RpgRobot</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='/Content/login.css' rel='stylesheet' type='text/css'>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/normalize.css" rel="stylesheet" />*@
+</head>
+
+<body>
+
+    <div class="login">
+        <h1>Login</h1>
+        <form method="post">
+
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @class = "formLogin" }))
+            {
+                @Html.TextBoxFor(m => m.nick, new { @class = "form-control", @maxlength = "50", @placeholder = "Nick", required = "required" })
+                @Html.PasswordFor(m => m.password, new { @class = "form-control", @maxlength = "50", @placeholder = "Password", required = "required" })
+                <button type="submit" id="btnLogin" class="btn btn-primary btn-block btn-large">Let me in.</button>
+            }
+
+             @if (TempData["MensagemErro"] != null)
+                {
+                    <div class="alert alert-danger" id="msg">
+                        <input type="hidden" value="@TempData["MensagemErro"]" class="MensagemRetorno" />
+                        @TempData["MensagemErro"]
+                    </div> 
+                    <div class="clearMargin20"></div>
+                }
+
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+@*<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RpgRobot</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='/Content/login.css' rel='stylesheet' type='text/css'>
+    <link href='/Content/bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='/Content/bootstrap-responsive.css' rel='stylesheet' type='text/css'>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/jquery-2.1.1.js"></script>
+
+</head>
+<body>
+
+    <section id="Conteudo">
+        <div class="loginCaixa">
+            <div class="circleContainer">
+                <div class="iconeCaixaIcon">
+                    <img src="images/icon_login.png" class="icoImagem">
+                </div>
+            </div>
+
+            <div class="loginForm col-md-12">
+                <p class="tituloInputs">Faça seu login</p>
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @class = "formLogin" }))
+                {
+                    <div class="clearMargin"></div>
+                    @Html.TextBoxFor(m => m.nick, new { @class = "loginInput", @maxlength = "50", @placeholder = "Digite seu usuário", required = "required" })
+                    @Html.PasswordFor(m => m.password, new { @class = "loginInput", @maxlength = "50", @placeholder = "Digite sua senha", required = "required" })
+                    <input type="submit" id="btnLogin" class="" value="Entrar">
+                }
+
+                @if (TempData["MensagemErro"] != null)
+                {
+                    <div class="alert alert-danger" id="msg">
+                        <input type="hidden" value="@TempData["MensagemErro"]" class="MensagemRetorno" />
+                        @TempData["MensagemErro"]
+                    </div> 
+                    <div class="clearMargin20"></div>
+                }
+                <a class="esqueceuSenha" href="/Login/RelembrarSenha">Esqueceu sua senha?</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(".MensagemRetorno").val() != null) {
+                $(".loginCaixa").height("359px");
+                $("#btnLogin").css("margin-bottom", "0px");
+            }
+            else {
+                $(".loginCaixa").height("309px");
+                $("#btnLogin").css("margin-bottom", "15px");
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>*@

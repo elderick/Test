@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Campaing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CampaingName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdCampaing" Type="int" Nullable="false" />
+          <Property Name="usernick" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="master" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdCampaing" Type="int" Nullable="false" />
+          <Property Name="IdPlayer" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Players__IdCampa__49C3F6B7">
+          <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaing">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="IdCampaing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sheet__IdCampain__5CD6CB2B">
+          <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+          <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaing">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sheet">
+              <PropertyRef Name="IdCampaing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sheet__IdPlayer__5DCAEF64">
+          <End Role="Players" Type="Self.Players" Multiplicity="1" />
+          <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sheet">
+              <PropertyRef Name="IdPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="Campaing" EntityType="Self.Campaing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sheet" EntityType="Self.Sheet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Players__IdCampa__49C3F6B7" Association="Self.FK__Players__IdCampa__49C3F6B7">
+            <End Role="Campaing" EntitySet="Campaing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sheet__IdCampain__5CD6CB2B" Association="Self.FK__Sheet__IdCampain__5CD6CB2B">
+            <End Role="Campaing" EntitySet="Campaing" />
+            <End Role="Sheet" EntitySet="Sheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sheet__IdPlayer__5DCAEF64" Association="Self.FK__Sheet__IdPlayer__5DCAEF64">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="Sheet" EntitySet="Sheet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Campaing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CampaingName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Players__IdCampa__49C3F6B7" FromRole="Campaing" ToRole="Players" />
+          <NavigationProperty Name="Sheet" Relationship="Self.FK__Sheet__IdCampain__5CD6CB2B" FromRole="Campaing" ToRole="Sheet" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdCampaing" Type="Int32" Nullable="false" />
+          <Property Name="usernick" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="master" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Campaing" Relationship="Self.FK__Players__IdCampa__49C3F6B7" FromRole="Players" ToRole="Campaing" />
+          <NavigationProperty Name="Sheet" Relationship="Self.FK__Sheet__IdPlayer__5DCAEF64" FromRole="Players" ToRole="Sheet" />
+        </EntityType>
+        <EntityType Name="Sheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdCampaing" Type="Int32" Nullable="false" />
+          <Property Name="IdPlayer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campaing" Relationship="Self.FK__Sheet__IdCampain__5CD6CB2B" FromRole="Sheet" ToRole="Campaing" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Sheet__IdPlayer__5DCAEF64" FromRole="Sheet" ToRole="Players" />
+        </EntityType>
+        <Association Name="FK__Players__IdCampa__49C3F6B7">
+          <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaing">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="IdCampaing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sheet__IdCampain__5CD6CB2B">
+          <End Role="Campaing" Type="Self.Campaing" Multiplicity="1" />
+          <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaing">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sheet">
+              <PropertyRef Name="IdCampaing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sheet__IdPlayer__5DCAEF64">
+          <End Role="Players" Type="Self.Players" Multiplicity="1" />
+          <End Role="Sheet" Type="Self.Sheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sheet">
+              <PropertyRef Name="IdPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campaing" EntityType="Self.Campaing" />
+          <EntitySet Name="Players" EntityType="Self.Players" />
+          <EntitySet Name="Sheet" EntityType="Self.Sheet" />
+          <AssociationSet Name="FK__Players__IdCampa__49C3F6B7" Association="Self.FK__Players__IdCampa__49C3F6B7">
+            <End Role="Campaing" EntitySet="Campaing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sheet__IdCampain__5CD6CB2B" Association="Self.FK__Sheet__IdCampain__5CD6CB2B">
+            <End Role="Campaing" EntitySet="Campaing" />
+            <End Role="Sheet" EntitySet="Sheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sheet__IdPlayer__5DCAEF64" Association="Self.FK__Sheet__IdPlayer__5DCAEF64">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="Sheet" EntitySet="Sheet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities1">
+          <EntitySetMapping Name="Campaing">
+            <EntityTypeMapping TypeName="DataModel.Campaing">
+              <MappingFragment StoreEntitySet="Campaing">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CampaingName" ColumnName="CampaingName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="DataModel.Players">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCampaing" ColumnName="IdCampaing" />
+                <ScalarProperty Name="usernick" ColumnName="usernick" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="master" ColumnName="master" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sheet">
+            <EntityTypeMapping TypeName="DataModel.Sheet">
+              <MappingFragment StoreEntitySet="Sheet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCampaing" ColumnName="IdCampaing" />
+                <ScalarProperty Name="IdPlayer" ColumnName="IdPlayer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
