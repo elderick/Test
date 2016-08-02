@@ -1,2 +1,1 @@
-# Test
-# Test a Online RPG Control Panel
+#Online RPG Control Panel
