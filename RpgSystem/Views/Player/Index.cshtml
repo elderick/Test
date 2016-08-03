@@ -6,133 +6,262 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    @*    <meta name="viewport" content="width=device-width, initial-scale=1">*@
     <meta name="description" content="">
     <meta name="author" content="">
     @*<link rel="icon" href="../../favicon.ico">*@
-
-    @*<title></title>*@
-
-    <!-- Bootstrap core CSS -->
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Condiment&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/player.css" rel="stylesheet" />
-    <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-md-12 title">
-            <h1>Vampire The Masquerade</h1>
+    <header class="header"></header>
+    <div class="container background">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 backgroundsheet">
+            <div class="col-md-12 vampire">
+                <h1 class="masquerade">Vampire The Masquerade</h1>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h4>Name:</h4>
+                    <h4>Player:</h4>
+                    <h4>Chronicle:</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Nature:</h4>
+                    <h4>Demeanor:</h4>
+                    <h4>Concept:</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Generation:</h4>
+                    <h4>Sire:</h4>
+                    <h4>Heaven:</h4>
+                </div>
+            </div>
+            <div class="col-md-12 title">
+                <hr class="Attributes">
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Physical</h3>
+                    <div class="atributes">
+                        <ss-rating id="Strength" data-dot-title="Strength" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Dexterity" data-dot-title="Dexterity" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Stamina" data-dot-title="Stamina" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Social</h3>
+                    <div class="atributes">
+                        <ss-rating id="Charisma" data-dot-title="Charisma" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Manipulation" data-dot-title="Manipulation" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Appearence" data-dot-title="Appearence" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Mental</h3>
+                    <div class="atributes">
+                        <ss-rating id="Perception" data-dot-title="Perception" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Intelligence" data-dot-title="Intelligence" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Wits" data-dot-title="Wits" data-dot-max="5" data-dot-min="0" data-dot-value="1"></ss-rating>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 title">
+                <hr class="Abilities">
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Talents</h3>
+                    <div class="atributes">
+                        <ss-rating id="Alertness" data-dot-title="Alertness" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Athletics" data-dot-title="Athletics" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Brawl" data-dot-title="Brawl" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Dodge" data-dot-title="Dodge" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Empathy" data-dot-title="Empathy" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Expression" data-dot-title="Expression" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Intimidation" data-dot-title="Intimidation" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Leadership" data-dot-title="Leadership" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Streetwise" data-dot-title="Streetwise" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Subterfurge" data-dot-title="Subterfurge" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Skills</h3>
+                    <div class="atributes">
+                        <ss-rating id="Animal Ken" data-dot-title="Animal Ken" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Crafts" data-dot-title="Crafts" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Drive" data-dot-title="Drive" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Etiquette" data-dot-title="Etiquette" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Firearms" data-dot-title="Firearms" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Melee" data-dot-title="Melee" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Perfomance" data-dot-title="Perfomance" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Security" data-dot-title="Security" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Stealth" data-dot-title="Stealth" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Survival" data-dot-title="Survival" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Knowledges</h3>
+                    <div class="atributes">
+                        <ss-rating id="Academics" data-dot-title="Academics" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Computer" data-dot-title="Computer" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Finance" data-dot-title="Finance" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Investigation" data-dot-title="Investigation" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Law" data-dot-title="Law" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Linguistics" data-dot-title="Linguistics" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Medicine" data-dot-title="Medicine" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Occult" data-dot-title="Occult" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Politics" data-dot-title="Politics" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Science" data-dot-title="Science" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 title">
+                <hr class="Advantages">
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Backgrounds</h3>
+                    <ss-rating id="Backgrounds" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Disciplines</h3>
+                    <ss-rating id="Disciplines" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Virtues</h3>
+                    <ss-rating id="Virtues" data-dot-max="5" data-dot-min="0" data-dot-value="0"></ss-rating>
+                </div>
+            </div>
+            <div class="col-md-12 title">
+                <hr class="Empty">
+            </div>
+            <div class="col-md-12 end">
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Humanity/Path</h3>
+                    <div>
+                        <ss-rating id="Path" data-dot-max="10" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <h3 class="subsubtitle">Willpower</h3>
+                    <div>
+                        <ss-rating id="PermaWillpower" data-dot-max="10" data-dot-min="0" data-dot-value="0"></ss-rating>
+                    </div>
+                    <div>
+                        <ss-rating id="Willpower" data-dot-max="10" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Blood Pool</h3>
+                    <div>
+                        <ss-rating id="BloodPool1" data-dot-max="10" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div>
+                        <ss-rating id="BloodPool2" data-dot-max="10" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <h3 class="subsubtitle">Weakness</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="subsubtitle">Health</h3>
+                    <div class="atributes">
+                        <ss-rating id="Bruised" data-dot-title="Bruised" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Hurt" data-dot-title="Hurt" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Injured" data-dot-title="Injured" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Wounded" data-dot-title="Wounded" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Mauled" data-dot-title="Mauled" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Crippled" data-dot-title="Crippled" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                    <div class="atributes">
+                        <ss-rating id="Incapacitated" data-dot-title="Incapacitated" data-dot-max="1" data-dot-min="0" data-dot-value="0" data-dot-is-squared="true"></ss-rating>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <h3>Name:</h3>
-                <h3>Player:</h3>
-                <h3>Chronicle:</h3>
-            </div>
-            <div class="col-md-4">
-                <h3>Nature:</h3>
-                <h3>Demeanor:</h3>
-                <h3>Concept:</h3>
-            </div>
-            <div class="col-md-4">
-                <h3>Generation:</h3>
-                <h3>Sire:</h3>
-                <h3>Heaven:</h3>
-            </div>
-        </div>
-        <div class="col-md-12 title">
-            <h1>Attributes</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <h1>Physical</h1>
-                <h3>Strength</h3>
-                <h3>Dexterity</h3>
-                <h3>Stamina</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Social</h1>
-                <h3>Charisma</h3>
-                <h3>Manipulation</h3>
-                <h3>Appearence</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Mental</h1>
-                <h3>Perception</h3>
-                <h3>Intelligence</h3>
-                <h3>Wits</h3>
-            </div>
-        </div>
-        <div class="col-md-12 title">
-            <h1>Abilities</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <h1>Talents</h1>
-                <h3>Alertness</h3>
-                <h3>Brawl</h3>
-                <h3>Stamina</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Skills</h1>
-                <h3>Animal Kin</h3>
-                <h3>Crafts</h3>
-                <h3>Drive</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Knowledges</h1>
-                <h3>Academics</h3>
-                <h3>Computer</h3>
-                <h3>Finance</h3>
-        </div>
-        <div class="col-md-12 title">
-            <h1>Advantages</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <h1>Backgrounds</h1>
-                <h3>____________</h3>
-                <h3>____________</h3>
-                <h3>____________</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Disciplines</h1>
-                <h3>____________</h3>
-                <h3>____________</h3>
-                <h3>____________</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Virtues</h1>
-                <h3>____________</h3>
-                <h3>____________</h3>
-                <h3>____________</h3>
-            </div>
-        </div>
-        <div class="col-md-12 title">
-            <h1>----------------</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <h1>Humanity/Path</h1>
-                <h3>____________</h3>
-                <h3>Willpower</h3>
-                <h3>____________</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Blood Pool</h1>
-                <h3>____________</h3>
-                <h3>Weakness</h3>
-                <h3>____________</h3>
-            </div>
-            <div class="col-md-4">
-                <h1>Health</h1>
-                <h3>____________</h3>
-                <h3>____________</h3>
-                <h3>____________</h3>
-            </div>
-        </div>
-        <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+        <div class="col-md-2"></div>
+    </div>
+    <footer class="header"></footer>
+
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/ssdot.js"></script>
 </body>
+
 </html>

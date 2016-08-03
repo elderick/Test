@@ -161,6 +161,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\player.css" />
+    <Content Include="Content\ss-xmark.svg" />
+    <Content Include="Content\ssdot.css" />
+    <Content Include="Scripts\ssdot.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
